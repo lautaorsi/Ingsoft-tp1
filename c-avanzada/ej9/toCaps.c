@@ -1,29 +1,24 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <stdint.h>
 
 char* toCaps(char* string){
-    char *str = "";
+    int i = 0;
+    
     while(*string != '\0'){
-        printf("\n%c",*string);
-        if(islower(*string)){
-            *str = *string + ('A' - 'a');
-            printf("\n%c",tolower(*string));
+        if(!islower(string[i])){
+            string[i] += 32;
         }
-        else{
-            *str = *string;
-            printf("Else:\n%c",*string);
-        }
-        
-        string ++;
-        str ++;
+        i++;
     }
-    return str;
+    return string;
 }
 
 
 int main(){
-    char *word = "Hola";
+    char word[4] = "Hola";
     printf("%s", word);
-    printf("%s", toCaps(word));
+    printf("\n %s", toCaps(word));
+    
     return 0;
 }
